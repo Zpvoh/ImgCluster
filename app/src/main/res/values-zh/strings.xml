@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">聚相</string>
+    <string name="navigation_drawer_open">打开导航栏</string>
+    <string name="navigation_drawer_close">关闭导航栏</string>
+    <string name="action_settings">设置</string>
+    <string name="join_cluster">加入分享组</string>
+    <string name="img_waterfall">照片瀑布</string>
+    <string name="my_clusters">我的分享组</string>
+</resources>

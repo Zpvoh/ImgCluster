@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ImgCluster</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="join_cluster">Join Cluster</string>
+    <string name="img_waterfall">Image Waterfall</string>
+    <string name="my_clusters">My Clusters</string>
 </resources>
