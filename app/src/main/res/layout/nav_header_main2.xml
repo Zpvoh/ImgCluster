@@ -13,7 +13,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/userView"
         android:layout_width="222dp"
         android:layout_height="96dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -23,14 +23,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Android Studio"
+        android:text="Zpvoh"
         android:textAppearance="@style/QMUITextAppearance.ListItem" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="android.studio@android.com"
+        android:text="16302010023@fudan.edu.cn"
         android:textAppearance="@style/QMUITextAppearance.ListItem"/>
 
 </LinearLayout>
