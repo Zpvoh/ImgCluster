@@ -3,6 +3,7 @@ package com.app.zpvoh.imgcluster;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -14,8 +15,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener ,
@@ -25,6 +30,7 @@ public class Main2Activity extends AppCompatActivity
 
     private WaterfallFragment waterfallFragment=new WaterfallFragment();
     private MyClusterFragment myClusterFragment=new MyClusterFragment();
+    public static User user=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +69,18 @@ public class Main2Activity extends AppCompatActivity
         });
 
 
+        if(user!=null){
+            ArrayList<Group> groups=Deal.getUserGroups(user.uid);
+            ArrayList<Image> images=new ArrayList<>();
+            groups.forEach(group->{
+                ArrayList<Image> group_imgs=Deal.getImageByGroup(group.group_id);
+                images.addAll(group_imgs);
+            });
 
+            waterfallFragment=WaterfallFragment.newInstance(images);
+        }else{
+            Toast.makeText(this, R.string.login_hint, Toast.LENGTH_SHORT).show();
+        }
         getFragmentManager().beginTransaction().replace(R.id.contentFragment, waterfallFragment).commit();
     }
 
@@ -108,6 +125,18 @@ public class Main2Activity extends AppCompatActivity
         if (id == R.id.nav_join) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            if(user!=null){
+                ArrayList<Group> groups=Deal.getUserGroups(user.uid);
+                ArrayList<Image> images=new ArrayList<>();
+                groups.forEach(group->{
+                    ArrayList<Image> group_imgs=Deal.getImageByGroup(group.group_id);
+                    images.addAll(group_imgs);
+                });
+
+                waterfallFragment=WaterfallFragment.newInstance(images);
+            }else{
+                Toast.makeText(this, R.string.login_hint, Toast.LENGTH_SHORT).show();
+            }
             getFragmentManager().beginTransaction().replace(R.id.contentFragment, waterfallFragment).commit();
 
         } else if (id == R.id.nav_manage) {
